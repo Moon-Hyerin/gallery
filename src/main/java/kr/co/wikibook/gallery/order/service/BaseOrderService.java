@@ -10,6 +10,7 @@ import kr.co.wikibook.gallery.order.entity.OrderItem;
 import kr.co.wikibook.gallery.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +61,7 @@ public class BaseOrderService implements OrderService {
 
     //주문 내용 저장
     @Override
+    @Transactional
     public void order(OrderRequest orderReq, Integer memberId) {
 
         //주문 상품의 최종 결제 금액을 계산
